@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Adjetivos – Grado 4°</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style>
+  :root {
+    --primary: #4361EE;
+    --primary-light: #EEF1FF;
+    --secondary: #F72585;
+    --accent1: #4CC9F0;
+    --accent2: #7209B7;
+    --accent3: #F4A261;
+    --accent4: #2DC653;
+    --bg: #F7F8FF;
+    --card-bg: #FFFFFF;
+    --text: #1B1B2F;
+    --text-muted: #5C5C80;
+    --radius: 20px;
+    --radius-sm: 12px;
+    --shadow: 0 4px 24px rgba(67,97,238,0.10);
+    --shadow-hover: 0 8px 32px rgba(67,97,238,0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #F72585 0%, #7209B7 50%, #4361EE 100%);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .header-bubbles { position: absolute; inset: 0; pointer-events: none; }
+  .bubble {
+    position: absolute; border-radius: 50%; opacity: 0.15;
+    animation: float 6s ease-in-out infinite alternate;
+  }
+  .bubble:nth-child(1){width:120px;height:120px;background:#fff;top:-30px;left:-20px;animation-delay:0s;}
+  .bubble:nth-child(2){width:80px;height:80px;background:#FFD166;bottom:10px;left:30%;animation-delay:1s;}
+  .bubble:nth-child(3){width:160px;height:160px;background:#4CC9F0;top:-40px;right:10%;animation-delay:2s;}
+  .bubble:nth-child(4){width:60px;height:60px;background:#2DC653;bottom:-10px;right:20%;animation-delay:0.5s;}
+  @keyframes float{from{transform:translateY(0) scale(1)}to{transform:translateY(-18px) scale(1.06)}}
+
+  .header-logo-bar {
+    display: flex; align-items: center; justify-content: center;
+    padding: 22px 20px 0;
+    position: relative; z-index: 1;
+  }
+  .header-logo-slot {
+    width: 350px; height: 150px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: visible;
+  }
+  .header-logo-slot img { width:100%; height:100%; object-fit:contain; }
+  .header-logo-slot .logo-placeholder-text {
+    font-size:11px; font-weight:800; color:rgba(255,255,255,0.65);
+    text-align:center; line-height:1.3; padding:6px;
+    letter-spacing:0.03em; text-transform:uppercase;
+  }
+
+  .header-inner {
+    max-width: 900px; margin: 0 auto;
+    padding: 28px 20px 28px;
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+  .badge-grado {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.18); border: 1.5px solid rgba(255,255,255,0.4);
+    color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 0.05em;
+    border-radius: 100px; padding: 6px 18px; margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  header h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(36px, 8vw, 62px);
+    font-weight: 800; color: #fff;
+    line-height: 1.1; margin-bottom: 10px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  }
+  header h1 span { color: #FFD166; }
+  header p {
+    color: rgba(255,255,255,0.88); font-size: clamp(17px, 3.5vw, 21px);
+    max-width: 540px; line-height: 1.5;
+  }
+  .header-stars { margin-top: 18px; display: flex; gap: 6px; }
+  .star { font-size: 24px; animation: starPop 0.5s ease backwards; }
+  .star:nth-child(1){animation-delay:0.2s}
+  .star:nth-child(2){animation-delay:0.35s}
+  .star:nth-child(3){animation-delay:0.5s}
+  @keyframes starPop{from{transform:scale(0) rotate(-30deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+
+  /* ── NAV ── */
+  nav {
+    background: #fff; border-bottom: 2px solid #EEF1FF;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(67,97,238,0.08);
+  }
+  .nav-inner {
+    max-width: 900px; margin: 0 auto;
+    padding: 10px 16px;
+    display: flex; gap: 8px; overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-pill {
+    flex-shrink: 0;
+    background: var(--primary-light); color: var(--primary);
+    border: none; border-radius: 100px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px; font-weight: 700;
+    padding: 9px 20px; cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+  .nav-pill:hover, .nav-pill.active {
+    background: var(--primary); color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* ── MAIN ── */
+  main { max-width: 900px; margin: 0 auto; padding: 32px 16px 60px; }
+
+  /* ── SECTION HEADER ── */
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+  .section-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(24px, 5vw, 32px);
+    font-weight: 800; line-height: 1.1;
+  }
+  .section-subtitle { font-size: 16px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ── INTRO CARD ── */
+  .intro-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 2px solid #EEF1FF;
+    padding: 28px 24px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow);
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .intro-card .mascot { font-size: 68px; flex-shrink: 0; line-height: 1; }
+  .intro-card p { font-size: clamp(17px, 3.5vw, 20px); line-height: 1.7; color: var(--text); }
+  .intro-card strong { color: var(--primary); }
+  .ejemplos-pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .pill {
+    background: var(--primary-light); color: var(--primary);
+    border-radius: 100px; font-size: 16px; font-weight: 700;
+    padding: 6px 18px;
+  }
+
+  /* ── TIPO CARDS GRID ── */
+  .tipos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .tipo-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 2.5px solid transparent;
+    padding: 22px 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .tipo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+  .tipo-card-emoji { font-size: 40px; margin-bottom: 10px; }
+  .tipo-card h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 22px; font-weight: 800; margin-bottom: 6px;
+  }
+  .tipo-card p { font-size: 16px; color: var(--text-muted); line-height: 1.6; margin-bottom: 10px; }
+  .tipo-ejemplos { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tipo-ej {
+    font-size: 15px; font-weight: 700;
+    border-radius: 8px; padding: 4px 14px;
+  }
+
+  /* adjetivo type colors */
+  .tc-calidad   { border-color: #4361EE20; }
+  .tc-calidad   h3 { color: #4361EE; }
+  .tc-calidad   .tipo-ej { background:#EEF1FF; color:#4361EE; }
+
+  .tc-cantidad  { border-color: #F7255520; }
+  .tc-cantidad  h3 { color: #F72585; }
+  .tc-cantidad  .tipo-ej { background:#FFF0F6; color:#F72585; }
+
+  .tc-demostr   { border-color: #4CC9F020; }
+  .tc-demostr   h3 { color: #0090C1; }
+  .tc-demostr   .tipo-ej { background:#E6F9FF; color:#0090C1; }
+
+  .tc-posesivo  { border-color: #2DC65320; }
+  .tc-posesivo  h3 { color: #1A9940; }
+  .tc-posesivo  .tipo-ej { background:#E8FAF0; color:#1A9940; }
+
+  .tc-numerales { border-color: #F4A26120; }
+  .tc-numerales h3 { color: #C4620A; }
+  .tc-numerales .tipo-ej { background:#FFF4E9; color:#C4620A; }
+
+  .tc-gentilicio { border-color: #7209B720; }
+  .tc-gentilicio h3 { color: #7209B7; }
+  .tc-gentilicio .tipo-ej { background:#F5EBFF; color:#7209B7; }
+
+  /* ── MODELOS 3D ── */
+  .modelos-section { margin-bottom: 40px; }
+  .modelos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .modelo-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 2px dashed #CBD5FF;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .modelo-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+  .modelo-viewport {
+    width: 100%; height: 200px;
+    background: linear-gradient(135deg, #F0F4FF 0%, #E8ECFF 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .modelo-viewport model-viewer { width: 100%; height: 100%; border: none; }
+  model-viewer {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #F0F4FF 0%, #E8ECFF 100%);
+    --poster-color: transparent;
+  }
+  .modelo-soon {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 8px; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #F7F8FF 0%, #ECEEFF 100%);
+  }
+  .modelo-soon-icon { font-size: 40px; opacity: 0.45; }
+  .modelo-soon-tag {
+    font-size: 12px; font-weight: 800; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #9B9DC8;
+    background: #ECEEFF; border-radius: 8px; padding: 3px 12px;
+  }
+  .modelo-soon-text { font-size: 12px; color: #B0B2D8; font-weight: 600; }
+  .modelo-info { padding: 14px 16px; }
+  .modelo-info h4 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 4px;
+  }
+  .modelo-info p { font-size: 14px; color: var(--text-muted); line-height: 1.4; }
+  .modelo-tipo-badge {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    border-radius: 6px; padding: 2px 10px; margin-top: 6px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  /* ── ACTIVIDADES ── */
+  .actividades-section { margin-bottom: 40px; }
+  .act-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 2px solid #EEF1FF;
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  .act-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .act-num {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: var(--primary); color: #fff;
+    font-family: 'Baloo 2', cursive; font-size: 22px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .act-header h3 { font-family: 'Baloo 2', cursive; font-size: 22px; font-weight: 800; color: var(--text); }
+  .act-header p { font-size: 16px; color: var(--text-muted); }
+
+  /* ACT 1 – Classify */
+  .classify-words { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .word-chip {
+    background: #EEF1FF; color: var(--primary);
+    border: 2px solid #CBD5FF;
+    border-radius: 100px; padding: 8px 20px;
+    font-size: 18px; font-weight: 700;
+    cursor: pointer; user-select: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .word-chip:hover { transform: scale(1.06); box-shadow: 0 4px 12px rgba(67,97,238,0.2); }
+  .word-chip.used { opacity: 0.35; cursor: default; pointer-events: none; }
+  .classify-bins {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .bin {
+    border-radius: var(--radius-sm);
+    border: 2.5px dashed #CBD5FF;
+    min-height: 90px; padding: 10px;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+  .bin:hover { background: #EEF1FF; border-color: var(--primary); }
+  .bin-label {
+    font-size: 15px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 8px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .bin-chips { display: flex; flex-wrap: wrap; gap: 6px; min-height: 36px; }
+  .placed-chip {
+    border-radius: 100px; padding: 5px 14px;
+    font-size: 15px; font-weight: 700;
+    cursor: pointer;
+  }
+
+  /* ACT 2 – Fill blanks */
+  .fill-sentence {
+    font-size: clamp(17px, 3.5vw, 20px); line-height: 2.2;
+    margin-bottom: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px;
+  }
+  .fill-input {
+    border: none; border-bottom: 3px solid var(--primary);
+    background: transparent; font-family: 'Nunito', sans-serif;
+    font-size: clamp(17px, 3.5vw, 20px); font-weight: 700;
+    color: var(--primary); width: 150px; text-align: center;
+    outline: none; padding: 0 4px;
+    transition: border-color 0.2s;
+  }
+  .fill-input:focus { border-color: var(--secondary); }
+  .fill-input.correct { border-color: #2DC653; color: #1A9940; background: #E8FAF0; border-radius: 8px 8px 0 0; }
+  .fill-input.wrong   { border-color: #F72585; color: #c0134f; background: #FFF0F6; border-radius: 8px 8px 0 0; }
+
+  /* ACT 3 – Multiple choice */
+  .mc-question { font-size: clamp(18px, 4vw, 22px); font-weight: 700; margin-bottom: 16px; line-height: 1.5; }
+  .mc-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .mc-option {
+    background: #F7F8FF; border: 2.5px solid #CBD5FF;
+    border-radius: var(--radius-sm); padding: 14px 18px;
+    font-size: 18px; font-weight: 700; color: var(--text);
+    cursor: pointer; transition: all 0.2s; text-align: left;
+  }
+  .mc-option:hover { background: #EEF1FF; border-color: var(--primary); color: var(--primary); }
+  .mc-option.correct { background: #E8FAF0; border-color: #2DC653; color: #1A9940; }
+  .mc-option.wrong   { background: #FFF0F6; border-color: #F72585; color: #c0134f; }
+  .mc-option.done    { pointer-events: none; }
+
+  /* ACT 4 – Memory */
+  .memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .mem-card {
+    aspect-ratio: 1;
+    border-radius: var(--radius-sm);
+    border: 2.5px solid #CBD5FF;
+    background: linear-gradient(135deg, #F72585, #7209B7);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: clamp(13px,3vw,17px); font-weight: 800;
+    color: transparent;
+    transition: all 0.35s;
+    user-select: none;
+    min-height: 60px;
+    position: relative; overflow: hidden;
+  }
+  .mem-card.flipped  { background: #fff; color: var(--text); border-color: var(--primary); }
+  .mem-card.matched  { background: #E8FAF0; color: #1A9940; border-color: #2DC653; cursor: default; }
+  .mem-card-back {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .mem-card.flipped .mem-card-back,
+  .mem-card.matched .mem-card-back { display: none; }
+
+  /* ACT 5 – Sort */
+  .sort-answer-zone {
+    display: flex; flex-wrap: wrap; gap: 8px; min-height: 56px;
+    background: #EEF1FF; border-radius: var(--radius-sm);
+    padding: 10px; border: 2px dashed var(--primary);
+    margin-bottom: 16px;
+  }
+  .sort-words-pool {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; min-height: 52px;
+    background: #F7F8FF; border-radius: var(--radius-sm);
+    padding: 10px; border: 2px dashed #CBD5FF;
+  }
+  .sort-chip {
+    border-radius: 100px; padding: 8px 18px;
+    font-size: 18px; font-weight: 700;
+    cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
+    border: 2px solid transparent;
+  }
+  .sort-chip.pool-chip { background: #fff; color: var(--primary); border-color: #CBD5FF; }
+  .sort-chip.pool-chip:hover { transform: scale(1.06); border-color: var(--primary); }
+  .sort-chip.ans-chip  { background: var(--primary); color: #fff; }
+  .sort-chip.ans-chip:hover { transform: scale(1.04); }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Nunito', sans-serif; font-weight: 800;
+    font-size: 16px; padding: 12px 26px;
+    border-radius: 100px; border: none; cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s;
+  }
+  .btn:active { transform: scale(0.96); }
+  .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 4px 16px rgba(67,97,238,0.3); }
+  .btn-primary:hover { box-shadow: 0 6px 24px rgba(67,97,238,0.4); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--primary); border: 2.5px solid var(--primary); }
+  .btn-outline:hover { background: var(--primary-light); }
+  .btn-sm { font-size: 15px; padding: 9px 20px; }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
+    background: #1B1B2F; color: #fff;
+    border-radius: 100px; padding: 13px 30px;
+    font-weight: 700; font-size: 17px;
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), opacity 0.3s;
+    opacity: 0; z-index: 9999; white-space: nowrap;
+    max-width: 90vw; text-align: center;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  .toast.success { background: #1A9940; }
+  .toast.error   { background: #c0134f; }
+
+  /* ── SCORE BAR ── */
+  .score-bar {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 2px solid #EEF1FF;
+    padding: 18px 24px;
+    margin-bottom: 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    box-shadow: var(--shadow);
+  }
+  .score-label { font-size: 16px; color: var(--text-muted); font-weight: 600; }
+  .score-value { font-family: 'Baloo 2', cursive; font-size: 28px; font-weight: 800; color: var(--primary); }
+  .progress-track {
+    flex: 1; min-width: 120px;
+    height: 13px; background: #EEF1FF; border-radius: 100px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; background: linear-gradient(90deg, #F72585, #7209B7);
+    border-radius: 100px; transition: width 0.5s ease; width: 0%;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    height: 3px; border: none;
+    background: linear-gradient(90deg, transparent, #CBD5FF 30%, #CBD5FF 70%, transparent);
+    margin: 40px 0; border-radius: 100px;
+  }
+
+  /* ── RESULT MODAL ── */
+  .result-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(27,27,47,0.65); z-index: 200;
+    align-items: center; justify-content: center;
+  }
+  .result-overlay.show { display: flex; }
+  .result-box {
+    background: #fff; border-radius: 28px;
+    padding: 40px 32px; text-align: center;
+    max-width: 380px; width: 90%;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+    animation: popIn 0.4s cubic-bezier(.34,1.56,.64,1) forwards;
+  }
+  @keyframes popIn{from{transform:scale(0.7);opacity:0}to{transform:scale(1);opacity:1}}
+  .result-box .trophy { font-size: 68px; margin-bottom: 12px; }
+  .result-box h2 { font-family:'Baloo 2',cursive; font-size:30px; font-weight:800; color:var(--secondary); margin-bottom:8px; }
+  .result-box p  { color: var(--text-muted); font-size:18px; margin-bottom:24px; }
+  .result-box .big-score { font-family:'Baloo 2',cursive; font-size:58px; font-weight:900; color:var(--primary); line-height:1; margin-bottom:4px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #1B1B2F; color: rgba(255,255,255,0.6);
+    text-align: center; padding: 52px 24px 40px;
+    line-height: 1.8;
+  }
+  .footer-inner { max-width: 680px; margin: 0 auto; }
+  .footer-logo-slot {
+    width: 400px; height: 220px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 30px;
+  }
+  .footer-logo-slot img { width:100%; height:100%; object-fit:contain; }
+  .footer-logo-slot .logo-placeholder-text {
+    font-size:13px; font-weight:800; color:rgba(255,255,255,0.4);
+    text-align:center; line-height:1.4; padding:12px;
+    letter-spacing:0.04em; text-transform:uppercase;
+  }
+  .footer-course { font-size:20px; font-weight:800; color:rgba(255,255,255,0.95); margin-bottom:6px; }
+  .footer-unit   { font-size:16px; color:rgba(255,255,255,0.5); margin-bottom:26px; }
+  .footer-divider { height:1px; background:rgba(255,255,255,0.1); margin:22px 0; }
+  .footer-authors-title {
+    font-size:13px; font-weight:800; letter-spacing:0.1em;
+    text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:14px;
+  }
+  .footer-authors { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:22px; }
+  .footer-author-chip {
+    background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.14);
+    border-radius:100px; padding:8px 20px;
+    font-size:15px; font-weight:700; color:rgba(255,255,255,0.82);
+  }
+  .footer-made-by { font-size:14px; color:rgba(255,255,255,0.3); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .intro-card { flex-direction: column; }
+    .intro-card .mascot { font-size: 52px; }
+    .tipos-grid { grid-template-columns: 1fr; }
+    .memory-grid { grid-template-columns: repeat(4,1fr); gap:6px; }
+    .mem-card { min-height: 50px; font-size: 11px; }
+    .act-card { padding: 20px 16px; }
+    .score-bar { flex-direction: column; align-items: flex-start; }
+    .footer-logo-slot { width:100px; height:100px; }
+    .header-logo-slot { width:64px; height:64px; }
+    .toast { white-space: normal; font-size:15px; padding:11px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-bubbles">
+    <div class="bubble"></div><div class="bubble"></div>
+    <div class="bubble"></div><div class="bubble"></div>
+  </div>
+
+  <div class="header-logo-bar">
+    <div class="header-logo-slot">
+      <img src="img/logo.png" alt="Logo Universidad" onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <div class="header-inner">
+    <div class="badge-grado">📚 Español · Grado 4°</div>
+    <h1>Los <span>Adjetivos</span></h1>
+    <p>Actividades complementarias para aprender los tipos de adjetivos de forma divertida</p>
+    <div class="header-stars">
+      <span class="star">⭐</span>
+      <span class="star">⭐</span>
+      <span class="star">⭐</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-pill active" onclick="navTo('introduccion',this)">📖 Introducción</button>
+    <button class="nav-pill" onclick="navTo('tipos',this)">🏷️ Tipos</button>
+    <button class="nav-pill" onclick="navTo('modelos3d',this)">🧊 Modelos 3D</button>
+    <button class="nav-pill" onclick="navTo('actividades',this)">🎯 Actividades</button>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+  <!-- SCORE BAR -->
+  <div class="score-bar">
+    <div>
+      <div class="score-label">Tu puntaje</div>
+      <div class="score-value" id="scoreDisplay">0 pts</div>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div>
+      <div class="score-label">Actividades</div>
+      <div class="score-value" id="actDisplay">0 / 5</div>
+    </div>
+  </div>
+
+  <!-- ══ SECCIÓN 1: INTRODUCCIÓN ══ -->
+  <section id="introduccion">
+    <div class="section-header">
+      <div class="section-icon" style="background:#EEF1FF;">📖</div>
+      <div>
+        <div class="section-title">¿Qué es un Adjetivo?</div>
+        <div class="section-subtitle">Empieza por aquí antes de las actividades</div>
+      </div>
+    </div>
+    <div class="intro-card">
+      <div class="mascot">🦜</div>
+      <div>
+        <p>El <strong>adjetivo</strong> es una palabra que <strong>acompaña al sustantivo</strong> para describir cómo es, cuántos hay o a cuál nos referimos. ¡Le dan vida y color a las oraciones!</p>
+        <div class="ejemplos-pill-row">
+          <span class="pill">🎨 rojo</span>
+          <span class="pill">🐘 grande</span>
+          <span class="pill">😊 feliz</span>
+          <span class="pill">3️⃣ tres</span>
+          <span class="pill">👉 ese</span>
+          <span class="pill">🏠 mío</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ══ SECCIÓN 2: TIPOS ══ -->
+  <section id="tipos">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF0F6;">🏷️</div>
+      <div>
+        <div class="section-title">Tipos de Adjetivos</div>
+        <div class="section-subtitle">Hay 6 tipos principales, ¡conócelos todos!</div>
+      </div>
+    </div>
+    <div class="tipos-grid">
+
+      <div class="tipo-card tc-calidad">
+        <div class="tipo-card-emoji">🎨</div>
+        <h3>Calificativos</h3>
+        <p>Describen una cualidad o característica del sustantivo.</p>
+        <div class="tipo-ejemplos">
+          <span class="tipo-ej">bonito</span>
+          <span class="tipo-ej">alto</span>
+          <span class="tipo-ej">suave</span>
+          <span class="tipo-ej">azul</span>
+        </div>
+      </div>
+
+      <div class="tipo-card tc-cantidad">
+        <div class="tipo-card-emoji">🔢</div>
+        <h3>De cantidad</h3>
+        <p>Indican cuántos o en qué cantidad aparecen los sustantivos.</p>
+        <div class="tipo-ejemplos">
+          <span class="tipo-ej">mucho</span>
+          <span class="tipo-ej">poco</span>
+          <span class="tipo-ej">bastante</span>
+          <span class="tipo-ej">ningún</span>
+        </div>
+      </div>
+
+      <div class="tipo-card tc-demostr">
+        <div class="tipo-card-emoji">👉</div>
+        <h3>Demostrativos</h3>
+        <p>Señalan la distancia o posición del sustantivo respecto a quien habla.</p>
+        <div class="tipo-ejemplos">
+          <span class="tipo-ej">este</span>
+          <span class="tipo-ej">ese</span>
+          <span class="tipo-ej">aquel</span>
+        </div>
+      </div>
+
+      <div class="tipo-card tc-posesivo">
+        <div class="tipo-card-emoji">🏠</div>
+        <h3>Posesivos</h3>
+        <p>Indican a quién pertenece el sustantivo que acompañan.</p>
+        <div class="tipo-ejemplos">
+          <span class="tipo-ej">mi</span>
+          <span class="tipo-ej">tu</span>
+          <span class="tipo-ej">su</span>
+          <span class="tipo-ej">nuestro</span>
+        </div>
+      </div>
+
+      <div class="tipo-card tc-numerales">
+        <div class="tipo-card-emoji">🔢</div>
+        <h3>Numerales</h3>
+        <p>Expresan una cantidad exacta o un orden preciso.</p>
+        <div class="tipo-ejemplos">
+          <span class="tipo-ej">dos</span>
+          <span class="tipo-ej">primero</span>
+          <span class="tipo-ej">triple</span>
+        </div>
+      </div>
+
+      <div class="tipo-card tc-gentilicio">
+        <div class="tipo-card-emoji">🌎</div>
+        <h3>Gentilicios</h3>
+        <p>Indican el origen, procedencia o nacionalidad del sustantivo.</p>
+        <div class="tipo-ejemplos">
+          <span class="tipo-ej">colombiano</span>
+          <span class="tipo-ej">costeño</span>
+          <span class="tipo-ej">bogotano</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ══ SECCIÓN 3: MODELOS 3D ══ -->
+  <section id="modelos3d" class="modelos-section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#F5EBFF;">🧊</div>
+      <div>
+        <div class="section-title">Modelos 3D Interactivos</div>
+        <div class="section-subtitle">Gira y explora cada objeto para aprender mejor</div>
+      </div>
+    </div>
+    <div class="modelos-grid">
+
+      <!-- Modelo 1 -->
+      <div class="modelo-card">
+        <div class="modelo-viewport">
+          <model-viewer
+            src="modelado/La flor.glb"
+            alt="Modelo 3D – Adjetivo Calificativo"
+            auto-rotate camera-controls
+            rotation-per-second="30deg"
+            shadow-intensity="1"
+            ar ar-modes="webxr scene-viewer quick-look">
+            <div slot="progress-bar"></div>
+          </model-viewer>
+        </div>
+        <div class="modelo-info">
+          <h4>La flor roja</h4>
+          <p>El adjetivo <em>roja</em> describe el color de la flor</p>
+          <span class="modelo-tipo-badge" style="background:#EEF1FF;color:#4361EE;">Calificativo</span>
+        </div>
+      </div>
+
+      <!-- Modelo 2 -->
+      <div class="modelo-card">
+        <div class="modelo-viewport">
+          <model-viewer
+            src="modelado/El árbol.glb"
+            alt="Modelo 3D – Adjetivo Demostrativo"
+            auto-rotate camera-controls
+            rotation-per-second="30deg"
+            shadow-intensity="1"
+            ar ar-modes="webxr scene-viewer quick-look">
+            <div slot="progress-bar"></div>
+          </model-viewer>
+        </div>
+        <div class="modelo-info">
+          <h4>Este árbol</h4>
+          <p>El adjetivo <em>este</em> señala un árbol cercano</p>
+          <span class="modelo-tipo-badge" style="background:#E6F9FF;color:#0090C1;">Demostrativo</span>
+        </div>
+      </div>
+
+      <!-- Modelo 3 -->
+      <div class="modelo-card">
+        <div class="modelo-viewport">
+          <model-viewer
+            src="modelado/Mochila.glb"
+            alt="Modelo 3D – Adjetivo Posesivo"
+            auto-rotate camera-controls
+            rotation-per-second="30deg"
+            shadow-intensity="1"
+            ar ar-modes="webxr scene-viewer quick-look">
+            <div slot="progress-bar"></div>
+          </model-viewer>
+        </div>
+        <div class="modelo-info">
+          <h4>Mi mochila</h4>
+          <p>El adjetivo <em>mi</em> indica a quién pertenece la mochila</p>
+          <span class="modelo-tipo-badge" style="background:#E8FAF0;color:#1A9940;">Posesivo</span>
+        </div>
+      </div>
+
+      <!-- Modelo 4 -->
+      <div class="modelo-card">
+        <div class="modelo-viewport">
+          <model-viewer
+            src="modelado/Dos perros.glb"
+            alt="Modelo 3D – Adjetivo Numeral"
+            auto-rotate camera-controls
+            rotation-per-second="30deg"
+            shadow-intensity="1"
+            ar ar-modes="webxr scene-viewer quick-look">
+            <div slot="progress-bar"></div>
+          </model-viewer>
+        </div>
+        <div class="modelo-info">
+          <h4>Dos perros</h4>
+          <p>El adjetivo <em>dos</em> indica la cantidad exacta</p>
+          <span class="modelo-tipo-badge" style="background:#FFF4E9;color:#C4620A;">Numeral</span>
+        </div>
+      </div>
+
+      <!-- Modelo 5 -->
+      <div class="modelo-card">
+        <div class="modelo-viewport">
+          <model-viewer
+            src="modelado/Elefante.glb"
+            alt="Modelo 3D – Adjetivo Calificativo grande"
+            auto-rotate camera-controls
+            rotation-per-second="30deg"
+            shadow-intensity="1"
+            ar ar-modes="webxr scene-viewer quick-look">
+            <div slot="progress-bar"></div>
+          </model-viewer>
+        </div>
+        <div class="modelo-info">
+          <h4>El elefante grande</h4>
+          <p>El adjetivo <em>grande</em> describe el tamaño</p>
+          <span class="modelo-tipo-badge" style="background:#EEF1FF;color:#4361EE;">Calificativo</span>
+        </div>
+      </div>
+
+      <!-- Modelo 6 -->
+      <div class="modelo-card">
+        <div class="modelo-viewport">
+          <model-viewer
+            src="modelado/Bandera.glb"
+            alt="Modelo 3D – Adjetivo Gentilicio"
+            auto-rotate camera-controls
+            rotation-per-second="30deg"
+            shadow-intensity="1"
+            ar ar-modes="webxr scene-viewer quick-look">
+            <div slot="progress-bar"></div>
+          </model-viewer>
+        </div>
+        <div class="modelo-info">
+          <h4>La bandera colombiana</h4>
+          <p>El adjetivo <em>colombiana</em> indica el origen</p>
+          <span class="modelo-tipo-badge" style="background:#F5EBFF;color:#7209B7;">Gentilicio</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ══ SECCIÓN 4: ACTIVIDADES ══ -->
+  <section id="actividades" class="actividades-section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#E8FAF0;">🎯</div>
+      <div>
+        <div class="section-title">¡A Practicar!</div>
+        <div class="section-subtitle">Completa las 5 actividades y gana puntos</div>
+      </div>
+    </div>
+
+    <!-- ─── ACTIVIDAD 1: Clasificar ─── -->
+    <div class="act-card" id="act1">
+      <div class="act-header">
+        <div class="act-num">1</div>
+        <div>
+          <h3>Clasifica los adjetivos</h3>
+          <p>Selecciona un adjetivo y luego toca la caja donde pertenece</p>
+        </div>
+      </div>
+      <div class="classify-words" id="wordPool">
+        <div class="word-chip" data-word="bonito"     data-tipo="calificativo" onclick="selectWord(this)">bonito</div>
+        <div class="word-chip" data-word="ese"        data-tipo="demostrativo" onclick="selectWord(this)">ese</div>
+        <div class="word-chip" data-word="mucho"      data-tipo="cantidad"     onclick="selectWord(this)">mucho</div>
+        <div class="word-chip" data-word="mi"         data-tipo="posesivo"     onclick="selectWord(this)">mi</div>
+        <div class="word-chip" data-word="tres"       data-tipo="numeral"      onclick="selectWord(this)">tres</div>
+        <div class="word-chip" data-word="colombiano" data-tipo="gentilicio"   onclick="selectWord(this)">colombiano</div>
+        <div class="word-chip" data-word="aquel"      data-tipo="demostrativo" onclick="selectWord(this)">aquel</div>
+        <div class="word-chip" data-word="nuestro"    data-tipo="posesivo"     onclick="selectWord(this)">nuestro</div>
+        <div class="word-chip" data-word="feliz"      data-tipo="calificativo" onclick="selectWord(this)">feliz</div>
+      </div>
+      <div class="classify-bins">
+        <div class="bin" onclick="dropWord('calificativo')">
+          <div class="bin-label" style="color:#4361EE;">🎨 Calificativo</div>
+          <div class="bin-chips" id="chips-calificativo"></div>
+        </div>
+        <div class="bin" onclick="dropWord('cantidad')">
+          <div class="bin-label" style="color:#F72585;">🔢 Cantidad</div>
+          <div class="bin-chips" id="chips-cantidad"></div>
+        </div>
+        <div class="bin" onclick="dropWord('demostrativo')">
+          <div class="bin-label" style="color:#0090C1;">👉 Demostrativo</div>
+          <div class="bin-chips" id="chips-demostrativo"></div>
+        </div>
+        <div class="bin" onclick="dropWord('posesivo')">
+          <div class="bin-label" style="color:#1A9940;">🏠 Posesivo</div>
+          <div class="bin-chips" id="chips-posesivo"></div>
+        </div>
+        <div class="bin" onclick="dropWord('numeral')">
+          <div class="bin-label" style="color:#C4620A;">🔢 Numeral</div>
+          <div class="bin-chips" id="chips-numeral"></div>
+        </div>
+        <div class="bin" onclick="dropWord('gentilicio')">
+          <div class="bin-label" style="color:#7209B7;">🌎 Gentilicio</div>
+          <div class="bin-chips" id="chips-gentilicio"></div>
+        </div>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-primary btn-sm" onclick="checkAct1()">✅ Verificar</button>
+        <button class="btn btn-outline btn-sm" onclick="resetAct1()">🔄 Reiniciar</button>
+      </div>
+    </div>
+
+    <!-- ─── ACTIVIDAD 2: Completa la oración ─── -->
+    <div class="act-card" id="act2">
+      <div class="act-header">
+        <div class="act-num" style="background:#F72585;">2</div>
+        <div>
+          <h3>Completa la oración</h3>
+          <p>Escribe el tipo de adjetivo que aparece en negrita</p>
+        </div>
+      </div>
+      <div id="fill-sentences">
+        <div class="fill-sentence">
+          "<strong>Mi</strong> perro es muy juguetón." — El adjetivo <em>mi</em> es&nbsp;
+          <input class="fill-input" id="fill1" placeholder="tipo..." data-answer="posesivo" oninput="this.value=this.value.toLowerCase().trim()">
+          &nbsp;porque indica pertenencia.
+        </div>
+        <div class="fill-sentence">
+          "<strong>Ese</strong> libro es interesante." — El adjetivo <em>ese</em> es&nbsp;
+          <input class="fill-input" id="fill2" placeholder="tipo..." data-answer="demostrativo" oninput="this.value=this.value.toLowerCase().trim()">
+          &nbsp;porque señala distancia.
+        </div>
+        <div class="fill-sentence">
+          "El niño <strong>bogotano</strong> ganó el concurso." — El adjetivo es&nbsp;
+          <input class="fill-input" id="fill3" placeholder="tipo..." data-answer="gentilicio" oninput="this.value=this.value.toLowerCase().trim()">
+          &nbsp;porque indica origen.
+        </div>
+        <div class="fill-sentence">
+          "Compré <strong>cinco</strong> manzanas." — El adjetivo <em>cinco</em> es&nbsp;
+          <input class="fill-input" id="fill4" placeholder="tipo..." data-answer="numeral" oninput="this.value=this.value.toLowerCase().trim()">
+          &nbsp;porque indica cantidad exacta.
+        </div>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-primary btn-sm" onclick="checkAct2()">✅ Verificar</button>
+        <button class="btn btn-outline btn-sm" onclick="resetAct2()">🔄 Reiniciar</button>
+      </div>
+    </div>
+
+    <!-- ─── ACTIVIDAD 3: Selección múltiple ─── -->
+    <div class="act-card" id="act3">
+      <div class="act-header">
+        <div class="act-num" style="background:#0090C1;">3</div>
+        <div>
+          <h3>¿Cuál es el tipo?</h3>
+          <p>Elige la respuesta correcta para cada pregunta</p>
+        </div>
+      </div>
+      <div id="mcContainer"></div>
+      <div style="margin-top:8px;">
+        <button class="btn btn-primary btn-sm" id="nextQBtn" onclick="nextMC()" style="display:none;">Siguiente ➡️</button>
+      </div>
+    </div>
+
+    <!-- ─── ACTIVIDAD 4: Memoria ─── -->
+    <div class="act-card" id="act4">
+      <div class="act-header">
+        <div class="act-num" style="background:#1A9940;">4</div>
+        <div>
+          <h3>Juego de Memoria</h3>
+          <p>Encuentra las parejas: adjetivo y su tipo. ¡Tienes 35 segundos!</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+        <span style="font-weight:700;font-size:16px;color:var(--text-muted);">⏱ Tiempo: <span id="memTimer" style="color:var(--secondary);">35</span>s</span>
+        <span style="font-weight:700;font-size:16px;color:var(--text-muted);">Parejas: <span id="memPairs" style="color:var(--primary);">0</span>/4</span>
+      </div>
+      <div class="memory-grid" id="memoryGrid"></div>
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-primary btn-sm" onclick="startMemory()">▶️ Iniciar / Reiniciar</button>
+      </div>
+    </div>
+
+    <!-- ─── ACTIVIDAD 5: Arma la oración ─── -->
+    <div class="act-card" id="act5">
+      <div class="act-header">
+        <div class="act-num" style="background:#7209B7;">5</div>
+        <div>
+          <h3>Arma la oración</h3>
+          <p>Toca las palabras en el orden correcto para formar la oración</p>
+        </div>
+      </div>
+      <div id="sortContainer"></div>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-primary btn-sm" onclick="checkSort()">✅ Verificar</button>
+        <button class="btn btn-outline btn-sm" onclick="resetSort()">🔄 Reiniciar</button>
+        <button class="btn btn-outline btn-sm" onclick="nextSort()">➡️ Siguiente</button>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- RESULT MODAL -->
+<div class="result-overlay" id="resultOverlay">
+  <div class="result-box">
+    <div class="trophy">🏆</div>
+    <h2>¡Felicidades!</h2>
+    <div class="big-score" id="finalScore">100</div>
+    <p id="resultMsg">¡Eres un experto en adjetivos!</p>
+    <button class="btn btn-primary" onclick="document.getElementById('resultOverlay').classList.remove('show')">🎉 ¡Genial!</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo-slot">
+      <img src="img/logo.png" alt="Logo Universidad" onerror="this.style.display='none'">
+    </div>
+    <div class="footer-course"><strong>Lengua Castellana · Grado 4°</strong></div>
+    <div class="footer-unit">Actividades complementarias al módulo Moodle · Unidad: El Adjetivo</div>
+    <div class="footer-divider"></div>
+    <div class="footer-authors-title">✏️ Autores</div>
+    <div class="footer-authors">
+      <span class="footer-author-chip">Daniel Ortega</span>
+      <span class="footer-author-chip">Hector Garcia</span>
+      <span class="footer-author-chip">Manuel Montes</span>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-made-by">Ingeniería de Sistemas · Desarrollado con ❤️ para el aprendizaje</div>
+  </div>
+</footer>
+
+<script>
+/* ══ UTILITIES ══ */
+let totalScore = 0;
+let actsCompleted = 0;
+const MAX_SCORE = 500;
+
+function navTo(id, btn) {
+  document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function showToast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  clearTimeout(t._to);
+  t._to = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+function addScore(pts) {
+  totalScore += pts;
+  actsCompleted = Math.min(actsCompleted + 1, 5);
+  document.getElementById('scoreDisplay').textContent = totalScore + ' pts';
+  document.getElementById('actDisplay').textContent = actsCompleted + ' / 5';
+  document.getElementById('progressFill').style.width = (totalScore / MAX_SCORE * 100) + '%';
+  if (actsCompleted === 5) {
+    setTimeout(() => {
+      document.getElementById('finalScore').textContent = totalScore + ' pts';
+      const msg = totalScore >= 400 ? '¡Eres un experto en adjetivos! 🌟' :
+                  totalScore >= 250 ? '¡Muy buen trabajo, sigue practicando! 💪' :
+                  '¡Sigue intentándolo, tú puedes! 📚';
+      document.getElementById('resultMsg').textContent = msg;
+      document.getElementById('resultOverlay').classList.add('show');
+    }, 800);
+  }
+}
+
+/* ══ ACT 1: CLASIFICAR ══ */
+let selectedChip = null;
+const tipoColors = {
+  calificativo: {bg:'#EEF1FF',  color:'#4361EE'},
+  cantidad:     {bg:'#FFF0F6',  color:'#F72585'},
+  demostrativo: {bg:'#E6F9FF',  color:'#0090C1'},
+  posesivo:     {bg:'#E8FAF0',  color:'#1A9940'},
+  numeral:      {bg:'#FFF4E9',  color:'#C4620A'},
+  gentilicio:   {bg:'#F5EBFF',  color:'#7209B7'},
+};
+
+function selectWord(el) {
+  if (el.classList.contains('used')) return;
+  document.querySelectorAll('.word-chip').forEach(c => c.style.outline = '');
+  selectedChip = el;
+  el.style.outline = '3px solid #4361EE';
+  showToast('Ahora toca una caja para clasificar: "' + el.dataset.word + '"');
+}
+
+function dropWord(tipo) {
+  if (!selectedChip) { showToast('Primero selecciona una palabra ☝️'); return; }
+  const word = selectedChip.dataset.word;
+  const correctTipo = selectedChip.dataset.tipo;
+  const c = tipoColors[tipo] || {bg:'#eee', color:'#333'};
+
+  const chip = document.createElement('div');
+  chip.className = 'placed-chip';
+  chip.style.background = c.bg;
+  chip.style.color = c.color;
+  chip.textContent = word;
+  chip.dataset.word = word;
+  chip.dataset.placedIn = tipo;
+  chip.dataset.correct = correctTipo;
+  chip.onclick = () => {
+    chip.remove();
+    selectedChip.classList.remove('used');
+    selectedChip.style.outline = '';
+    selectedChip = null;
+  };
+
+  document.getElementById('chips-' + tipo).appendChild(chip);
+  selectedChip.classList.add('used');
+  selectedChip.style.outline = '';
+  selectedChip = null;
+}
+
+function checkAct1() {
+  const placed = document.querySelectorAll('.placed-chip');
+  if (placed.length === 0) { showToast('Clasifica al menos un adjetivo 😊'); return; }
+  let correct = 0, wrong = 0;
+  placed.forEach(chip => {
+    if (chip.dataset.placedIn === chip.dataset.correct) {
+      chip.style.outline = '2.5px solid #2DC653'; correct++;
+    } else {
+      chip.style.outline = '2.5px solid #F72585'; wrong++;
+    }
+  });
+  const pts = correct * 10;
+  if (wrong === 0 && correct >= 6) {
+    showToast('🎉 ¡Perfecto! +' + pts + ' pts', 'success');
+    addScore(pts);
+  } else if (correct > 0) {
+    showToast('✅ ' + correct + ' bien · ❌ ' + wrong + ' por revisar');
+  } else {
+    showToast('Sigue intentándolo 💪', 'error');
+  }
+}
+
+function resetAct1() {
+  document.querySelectorAll('.placed-chip').forEach(c => c.remove());
+  document.querySelectorAll('.word-chip').forEach(c => { c.classList.remove('used'); c.style.outline = ''; });
+  selectedChip = null;
+}
+
+/* ══ ACT 2: FILL BLANKS ══ */
+function checkAct2() {
+  const inputs = document.querySelectorAll('.fill-input');
+  let correct = 0;
+  inputs.forEach(inp => {
+    inp.classList.remove('correct', 'wrong');
+    if (inp.value.trim() === inp.dataset.answer) {
+      inp.classList.add('correct'); correct++;
+    } else if (inp.value.trim() !== '') {
+      inp.classList.add('wrong');
+    }
+  });
+  const pts = correct * 25;
+  if (correct === inputs.length) {
+    showToast('🎉 ¡Todo correcto! +' + pts + ' pts', 'success');
+    addScore(pts);
+  } else {
+    showToast('✅ ' + correct + ' de ' + inputs.length + ' · Revisa las rojas');
+  }
+}
+
+function resetAct2() {
+  document.querySelectorAll('.fill-input').forEach(i => { i.value = ''; i.className = 'fill-input'; });
+}
+
+/* ══ ACT 3: MULTIPLE CHOICE ══ */
+const mcQuestions = [
+  { q: '¿Cuál de estas palabras es un adjetivo CALIFICATIVO?',
+    opts: ['este', 'hermoso', 'cinco', 'mi'], ans: 'hermoso' },
+  { q: '"Aquella montaña es muy alta." — ¿Qué tipo de adjetivo es "aquella"?',
+    opts: ['posesivo', 'calificativo', 'demostrativo', 'numeral'], ans: 'demostrativo' },
+  { q: '"Tengo mucha tarea." — El adjetivo "mucha" es de…',
+    opts: ['calidad', 'cantidad', 'gentilicio', 'numeral'], ans: 'cantidad' },
+  { q: '¿Cuál es un adjetivo POSESIVO?',
+    opts: ['bonito', 'ese', 'nuestro', 'dos'], ans: 'nuestro' },
+  { q: '"El equipo caleño ganó." — El adjetivo "caleño" es…',
+    opts: ['calificativo', 'numeral', 'posesivo', 'gentilicio'], ans: 'gentilicio' },
+];
+let mcIndex = 0, mcScore = 0, mcAnswered = false;
+
+function renderMC() {
+  const q = mcQuestions[mcIndex];
+  const container = document.getElementById('mcContainer');
+  container.innerHTML = `
+    <div style="font-size:15px;color:var(--text-muted);margin-bottom:8px;">Pregunta ${mcIndex + 1} de ${mcQuestions.length}</div>
+    <div class="mc-question">${q.q}</div>
+    <div class="mc-options" id="mcOptions">
+      ${q.opts.map(o => `<button class="mc-option" onclick="answerMC('${o}')">${o}</button>`).join('')}
+    </div>
+  `;
+  mcAnswered = false;
+  document.getElementById('nextQBtn').style.display = 'none';
+}
+
+function answerMC(chosen) {
+  if (mcAnswered) return;
+  mcAnswered = true;
+  const q = mcQuestions[mcIndex];
+  document.querySelectorAll('.mc-option').forEach(btn => {
+    btn.classList.add('done');
+    if (btn.textContent === q.ans) btn.classList.add('correct');
+    else if (btn.textContent === chosen && chosen !== q.ans) btn.classList.add('wrong');
+  });
+  if (chosen === q.ans) {
+    mcScore++;
+    showToast('🎉 ¡Correcto!', 'success');
+  } else {
+    showToast('La respuesta era: ' + q.ans, 'error');
+  }
+  if (mcIndex < mcQuestions.length - 1) {
+    document.getElementById('nextQBtn').style.display = 'inline-flex';
+  } else {
+    const pts = mcScore * 20;
+    setTimeout(() => {
+      showToast('✅ ' + mcScore + '/' + mcQuestions.length + ' · +' + pts + ' pts', mcScore >= 3 ? 'success' : '');
+      addScore(pts);
+    }, 600);
+  }
+}
+
+function nextMC() { mcIndex++; renderMC(); }
+
+renderMC();
+
+/* ══ ACT 4: MEMORY ══ */
+const memPairs = [
+  { a: 'hermoso',   b: 'Calificativo' },
+  { a: 'ese',       b: 'Demostrativo' },
+  { a: 'nuestro',   b: 'Posesivo'     },
+  { a: 'bogotano',  b: 'Gentilicio'   },
+];
+let memFlipped = [], memMatched = 0, memTimerInt = null, memLocked = false;
+
+function buildMemory() {
+  let cards = [];
+  memPairs.forEach((p, i) => {
+    cards.push({ text: p.a, id: i });
+    cards.push({ text: p.b, id: i });
+  });
+  cards.sort(() => Math.random() - 0.5);
+  const grid = document.getElementById('memoryGrid');
+  grid.innerHTML = '';
+  cards.forEach(c => {
+    const div = document.createElement('div');
+    div.className = 'mem-card';
+    div.dataset.id = c.id;
+    div.dataset.text = c.text;
+    div.innerHTML = `<div class="mem-card-back">🌟</div><span>${c.text}</span>`;
+    div.onclick = () => flipCard(div);
+    grid.appendChild(div);
+  });
+}
+
+function startMemory() {
+  memFlipped = []; memMatched = 0; memLocked = false;
+  document.getElementById('memPairs').textContent = '0';
+  clearInterval(memTimerInt);
+  let t = 35;
+  document.getElementById('memTimer').textContent = t;
+  document.getElementById('memTimer').style.color = 'var(--secondary)';
+  buildMemory();
+  memTimerInt = setInterval(() => {
+    t--;
+    document.getElementById('memTimer').textContent = t;
+    if (t <= 10) document.getElementById('memTimer').style.color = '#c0134f';
+    if (t <= 0) {
+      clearInterval(memTimerInt);
+      if (memMatched < memPairs.length) showToast('⏰ ¡Tiempo! Inténtalo de nuevo', 'error');
+    }
+  }, 1000);
+}
+
+function flipCard(card) {
+  if (memLocked) return;
+  if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
+  card.classList.add('flipped');
+  memFlipped.push(card);
+  if (memFlipped.length === 2) {
+    memLocked = true;
+    const [a, b] = memFlipped;
+    if (a.dataset.id === b.dataset.id && a !== b) {
+      a.classList.add('matched'); b.classList.add('matched');
+      memMatched++;
+      document.getElementById('memPairs').textContent = memMatched;
+      memFlipped = []; memLocked = false;
+      if (memMatched === memPairs.length) {
+        clearInterval(memTimerInt);
+        showToast('🎉 ¡Completaste la memoria! +100 pts', 'success');
+        addScore(100);
+      }
+    } else {
+      setTimeout(() => {
+        a.classList.remove('flipped'); b.classList.remove('flipped');
+        memFlipped = []; memLocked = false;
+      }, 900);
+    }
+  }
+}
+
+buildMemory();
+
+/* ══ ACT 5: SORT SENTENCE ══ */
+const sortSentences = [
+  { words: ['El', 'perro', 'grande', 'es', 'muy', 'juguetón'],        answer: 'El perro grande es muy juguetón' },
+  { words: ['Ese', 'libro', 'es', 'un', 'adjetivo', 'demostrativo'],  answer: 'Ese libro es un adjetivo demostrativo' },
+  { words: ['Mi', 'mochila', 'roja', 'está', 'en', 'la', 'escuela'],  answer: 'Mi mochila roja está en la escuela' },
+];
+let sortIdx = 0, sortAnswer = [];
+
+function renderSort() {
+  const s = sortSentences[sortIdx];
+  const shuffled = [...s.words].sort(() => Math.random() - 0.5);
+  sortAnswer = [];
+  document.getElementById('sortContainer').innerHTML = `
+    <div style="font-size:15px;color:var(--text-muted);margin-bottom:10px;">Oración ${sortIdx + 1} de ${sortSentences.length}</div>
+    <div class="sort-answer-zone" id="sortAnswer">
+      <span style="color:var(--primary);opacity:0.5;font-size:15px;align-self:center;" id="sortPlaceholder">Toca las palabras en orden...</span>
+    </div>
+    <div class="sort-words-pool" id="sortPool">
+      ${shuffled.map(w => `<div class="sort-chip pool-chip" onclick="addToAnswer(this)" data-word="${w}">${w}</div>`).join('')}
+    </div>
+  `;
+}
+
+function addToAnswer(el) {
+  sortAnswer.push(el.dataset.word);
+  el.remove();
+  const ans = document.getElementById('sortAnswer');
+  document.getElementById('sortPlaceholder')?.remove();
+  const chip = document.createElement('div');
+  chip.className = 'sort-chip ans-chip';
+  chip.textContent = el.dataset.word;
+  chip.dataset.word = el.dataset.word;
+  chip.onclick = () => {
+    chip.remove();
+    const idx = sortAnswer.indexOf(el.dataset.word);
+    if (idx > -1) sortAnswer.splice(idx, 1);
+    const pool = document.getElementById('sortPool');
+    const back = document.createElement('div');
+    back.className = 'sort-chip pool-chip';
+    back.dataset.word = el.dataset.word;
+    back.textContent = el.dataset.word;
+    back.onclick = () => addToAnswer(back);
+    pool.appendChild(back);
+    if (sortAnswer.length === 0) {
+      document.getElementById('sortAnswer').innerHTML =
+        '<span style="color:var(--primary);opacity:0.5;font-size:15px;align-self:center;" id="sortPlaceholder">Toca las palabras en orden...</span>';
+    }
+  };
+  ans.appendChild(chip);
+}
+
+function checkSort() {
+  const correct = sortSentences[sortIdx].answer;
+  const typed = sortAnswer.join(' ');
+  if (typed === correct) {
+    showToast('🎉 ¡Correcto! +60 pts', 'success');
+    addScore(60);
+  } else {
+    showToast('Revisa el orden ❌ · Correcto: "' + correct + '"', 'error');
+  }
+}
+
+function resetSort() { renderSort(); }
+function nextSort() { sortIdx = (sortIdx + 1) % sortSentences.length; renderSort(); }
+
+renderSort();
+</script>
+</body>
+</html>
